@@ -3,7 +3,8 @@ from Trig_Functions import Scientfic_calculator
 
 def display_mode():
    while True:
-       mode = input("What display mode would you like to work in? Options: Default,\n Bianary, Octal, Decimal, Hexidecimal , Trig_functions? or Enter q to Quit")
+       mode = input("What display mode would you like to work in? Options: Default,"
+                    "Binary, Octal, Decimal, Hexadecimal , Trig_functions? or Enter q to Quit")
        if mode == 'Default':
            calc = Calculator()
            performCalcLoop(calc)
