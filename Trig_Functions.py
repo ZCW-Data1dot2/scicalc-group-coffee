@@ -2,15 +2,14 @@ import math
 
 #list = ["Degrees","Radians","Gradian"]
 #unit_mode = 1
-unit = "Degrees"
-unit_value = 20
+
 
 class Scientfic_calculator:
     def __init__(self):
         pass
 
     def getOneNumbers(self):
-        a = float(input(" One number? "))
+        a = float(input(" Your number? "))
         return a
     def sin(self,val):
         return math.sin(val)
@@ -30,39 +29,49 @@ class Scientfic_calculator:
             return "Error"
     def inv_tan(self,val):
         return math.atan(val)
-    def switchUnitsMode(self):
-        global unit_value
-        global unit
-        if unit == "Degrees":
-           unit = "Radians"
-           unit_value = math.radians(unit_value)
-        elif unit == "Radians":
-            unit = "Degrees"
-            unit_value = math.degrees(unit_value)
+    def SwitchUnitsMode(self):
+        unit = input("Radian or Degree")
+        if (unit == "Radian"):
+            unit_value = input("Enter the Value :")
+            return math.radians(int(unit_value))
+        elif unit == "Degree":
+            unit_value = input("Enter the Value :")
+            return math.degrees(int(unit_value))
 
-    def SwitchUnitMode(self,mode):
+    def SwitchUnitMode(self):
+        mode = input("Operation ?")
+        if (mode != "radian" and mode != "degree" ):
+            a = self.getOneNumbers()
         while True:
-            choice = input("Operation? ")
-            if choice == 'q':
-                break  #
-            if (choice== "sin"):
-
-               print(self.sin(int(mode)))
-            elif (choice== "cos"):
-                print(self.cos(int(mode)))
-            elif (choice == "tan"):
-                print(self.tan(int(mode)))
-            elif (choice == "inv sin"):
-                print(self.inv_sin(int(mode)))
-            elif (choice == "inv cos"):
-                print(self.inv_cos(int(mode)))
-            elif (choice == "inv tan"):
-                print(self.inv_tan(int(mode)))
-
+            if mode == 'q':
+                break
+            if (mode== "sin"):
+               # a = self.getOneNumbers()
+               print(self.sin(int(a)))
+            elif (mode== "cos"):
+                # a = self.getOneNumbers()
+                print(self.cos(int(a)))
+            elif (mode == "tan"):
+                # a = self.getOneNumbers()
+                print(self.tan(int(a)))
+            elif (mode == "inv sin"):
+                # a = self.getOneNumbers()
+                print(self.inv_sin(int(a)))
+            elif (mode == "inv cos"):
+                # a = self.getOneNumbers()
+                print(self.inv_cos(int(a)))
+            elif (mode == "inv tan"):
+                # a = self.getOneNumbers()
+                print(self.inv_tan(int(a)))
+            elif (mode == "radian" or mode == "degree"):
+                print(self.SwitchUnitsMode())
+            mode = input("Operation ?")
+            if (mode != "radian" and mode != "degree" and mode != "q"):
+                a = self.getOneNumbers()
 
 trig = Scientfic_calculator()
-x = trig.getOneNumbers()
-trig.SwitchUnitMode(x)
+
+
 
 # switchUnitsMode()
 # print(unit_value)
