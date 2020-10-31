@@ -26,6 +26,7 @@ def performCalcLoop(calc):
 # main start
 def main():
     calc = Calculator()
+
     performCalcLoop(calc)
     print("Done Calculating.")
 
