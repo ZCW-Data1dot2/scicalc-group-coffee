@@ -6,6 +6,7 @@ class Calculator:
         self.state = 0
         self.display_mode = "dec"
         self.memory = 0
+        self.degree = "deg"
 
     def getOneNumbers(self):
         a = float(input(" Your number? "))
@@ -36,13 +37,21 @@ class Calculator:
         return math.atan(val)
 
     def SwitchUnitsMode(self):
-        unit = input("Radian or Degree")
-        if (unit == "Radian"):
+        unit = input("radian or degree")
+        if (unit == "radian"):
             unit_value = input("Enter the Value :")
-            return math.radians(int(unit_value))
-        elif unit == "Degree":
+            self.state = math.radians(int(unit_value))
+        elif unit == "degree":
             unit_value = input("Enter the Value :")
-            return math.degrees(int(unit_value))
+            self.state = math.degrees(int(unit_value))
+
+    def getOneNumber(self):
+        a = int(input("Your number? "))
+        return a
+
+    def degree(self):
+        unit_value = self.getOneNumbers()
+        self.state = math.radians(int(unit_value))
 
     def SwitchUnitMode(self):
         mode = input("Scientific Operation? ")
@@ -53,55 +62,58 @@ class Calculator:
             # break
             if (mode == "sin"):
                 # a = self.getOneNumbers()
-                print(self.sin(int(a)))
+                self.state = self.sin(int(a))
             elif (mode == "cos"):
                 # a = self.getOneNumbers()
-                print(self.cos(int(a)))
+                self.state = self.cos(int(a))
             elif (mode == "tan"):
                 # a = self.getOneNumbers()
-                print(self.tan(int(a)))
+                self.state = self.tan(int(a))
             elif (mode == "inv sin"):
                 # a = self.getOneNumbers()
-                print(self.inv_sin(int(a)))
+                self.state = self.inv_sin(int(a))
             elif (mode == "inv cos"):
                 # a = self.getOneNumbers()
-                print(self.inv_cos(int(a)))
+                self.state = self.inv_cos(int(a))
             elif (mode == "inv tan"):
                 # a = self.getOneNumbers()
-                print(self.inv_tan(int(a)))
+                self.state = self.inv_tan(int(a))
             elif (mode == "radian" or mode == "degree"):
-                print(self.SwitchUnitsMode())
+                degree(self)
+
             else:
                 print("Not a valid input.")
 
     def displayResult(self):
         display_state = self.convertMode()
-        print(display_state)
+        print("State:" + display_state)
+
+    # def displayResult
 
     def add(self, a, b):
-        return a + b
+        self.state = a + b
 
     def sub(self, a, b):
-        return a - b
+        self.state = a - b
 
 # add lots more methods to this calculator class.
     def multiply(self, a, b):
-        return a * b
+        self.state = a * b
 
     def divide(self, a, b):
-        return a/b
+        self.state = a/b
 
     def square(self, a):
-        return a ** 2
+        self.state = a ** 2
 
     def square_root(self, a):
-        return math.sqrt(a)
+        self.state = math.sqrt(a)
 
     def exponentiate(self, a, b):
-        return a ** b
+        self.state = a ** b
 
     def inverse(self, a):
-        return 1/a
+        self.state = 1/a
 
     def invert(self, a):
         self.state = -a
@@ -141,4 +153,22 @@ class Calculator:
             new_state = str(self.state)
         elif self.display_mode == "hex":
             new_state = hex(self.state)
+        return new_state
+
+    def DegreeorRadian(self, mode):
+        if mode == '':
+            if self.degrees == "deg":
+                self.degrees = "rad"
+            elif self.radian == "deg":
+                self.radian = "rad"
+        elif mode in ('deg','rad'):
+            self.degrees = mode
+        else:
+            print("invalid")
+
+    def SwitchUnitsMode(self):
+        if self.degree == 'deg':
+             new_state = math.degree(self.state)
+        elif self.degree == 'rad':
+             new_state = math.radians(self.state)
         return new_state
