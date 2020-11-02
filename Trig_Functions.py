@@ -54,13 +54,13 @@ class Scientfic_calculator:
             elif (mode == "tan"):
                 # a = self.getOneNumbers()
                 print(self.tan(int(a)))
-            elif (mode == "inv sin"):
+            elif (mode == "inv_sin"):
                 # a = self.getOneNumbers()
                 print(self.inv_sin(int(a)))
-            elif (mode == "inv cos"):
+            elif (mode == "inv_cos"):
                 # a = self.getOneNumbers()
                 print(self.inv_cos(int(a)))
-            elif (mode == "inv tan"):
+            elif (mode == "inv_tan"):
                 # a = self.getOneNumbers()
                 print(self.inv_tan(int(a)))
             elif (mode == "radian" or mode == "degree"):

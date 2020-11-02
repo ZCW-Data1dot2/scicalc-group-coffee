@@ -8,8 +8,8 @@ class Calculator:
         self.memory = 0
         self.degree = "deg"
 
-    def getOneNumbers(self):
-        a = float(input(" Your number? "))
+    def getOneNumbers1(self):
+        a = int(input(" Your number? "))
         return a
 
     def sin(self, val):
@@ -25,25 +25,25 @@ class Calculator:
         if (val >= -1 and val <= 1):
             return math.asin(val)
         else:
-            return "Error"
+            return 0
 
     def inv_cos(self, val):
         if (val >= -1 and val <= 1):
             return math.acos(val)
         else:
-            return "Error"
+            return 0
 
     def inv_tan(self, val):
         return math.atan(val)
 
-    def SwitchUnitsMode(self):
-        unit = input("radian or degree")
-        if (unit == "radian"):
-            unit_value = input("Enter the Value :")
-            self.state = math.radians(int(unit_value))
-        elif unit == "degree":
-            unit_value = input("Enter the Value :")
-            self.state = math.degrees(int(unit_value))
+    def SwitchUnitsMode(self,val,mode):
+        #unit = input("radian or degree")
+        if (mode == "radian"):
+            #unit_value = input("Enter the Value :")
+            return math.radians(int(val))
+        elif mode == "degree":
+            #unit_value = input("Enter the Value :")
+            return math.degrees(int(val))
 
     def getOneNumber(self):
         a = int(input("Your number? "))
@@ -55,34 +55,35 @@ class Calculator:
 
     def SwitchUnitMode(self):
         mode = input("Scientific Operation? ")
-        if (mode != "radian" and mode != "degree"):
-            a = self.getOneNumbers()
-            # while True:
-            # if mode == 'q':
-            # break
-            if (mode == "sin"):
-                # a = self.getOneNumbers()
-                self.state = self.sin(int(a))
-            elif (mode == "cos"):
-                # a = self.getOneNumbers()
-                self.state = self.cos(int(a))
-            elif (mode == "tan"):
-                # a = self.getOneNumbers()
-                self.state = self.tan(int(a))
-            elif (mode == "inv sin"):
-                # a = self.getOneNumbers()
-                self.state = self.inv_sin(int(a))
-            elif (mode == "inv cos"):
-                # a = self.getOneNumbers()
-                self.state = self.inv_cos(int(a))
-            elif (mode == "inv tan"):
-                # a = self.getOneNumbers()
-                self.state = self.inv_tan(int(a))
-            elif (mode == "radian" or mode == "degree"):
-                degree(self)
+        #if (mode != "radian" and mode != "degree"):
+        a = self.getOneNumbers1()
+        # while True:
+        # if mode == 'q':
+        # break
+        if (mode == "sin"):
+            # a = self.getOneNumbers()
+            self.state = self.sin(int(a))
+        elif (mode == "cos"):
+            # a = self.getOneNumbers()
+            self.state = self.cos(int(a))
+        elif (mode == "tan"):
+            # a = self.getOneNumbers()
+            self.state = self.tan(int(a))
+        elif (mode == "inv_sin"):
+            # a = self.getOneNumbers()
+            self.state = self.inv_sin(int(a))
+        elif (mode == "inv_cos"):
+            # a = self.getOneNumbers()
+            self.state = self.inv_cos(int(a))
+        elif (mode == "inv_tan"):
+            # a = self.getOneNumbers()
+            self.state = self.inv_tan(int(a))
+        elif (mode == "radian" or mode == "degree"):
 
-            else:
-                print("Not a valid input.")
+            self.state = self.SwitchUnitsMode(a,mode)
+
+        else:
+            print("Not a valid input.")
 
     def displayResult(self):
         display_state = self.convertMode()
@@ -166,9 +167,9 @@ class Calculator:
         else:
             print("invalid")
 
-    def SwitchUnitsMode(self):
-        if self.degree == 'deg':
-             new_state = math.degree(self.state)
-        elif self.degree == 'rad':
-             new_state = math.radians(self.state)
-        return new_state
+    # def SwitchUnitsMode(self):
+    #     if self.degree == 'deg':
+    #          new_state = math.degree(self.state)
+    #     elif self.degree == 'rad':
+    #          new_state = math.radians(self.state)
+    #     return new_state

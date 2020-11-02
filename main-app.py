@@ -65,7 +65,7 @@ def performCalcLoop(calc):
             return "Coffee Group"
         elif choice == 'Trig_functions' or choice == "Trig":
             print("Your basic operations are: sin,cos,tan,inv_sin,inv_cos,inv_tan,radian")
-            trig = Scientfic_calculator()
+            #trig = Scientfic_calculator()
             # x = input("Operation ?")
             calc.SwitchUnitMode()
         elif choice == "Change Mode":
