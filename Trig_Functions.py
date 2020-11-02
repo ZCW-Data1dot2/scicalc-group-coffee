@@ -39,15 +39,15 @@ class Scientfic_calculator:
             return math.degrees(int(unit_value))
 
     def SwitchUnitMode(self):
-        mode = input("Operation ?")
+        mode = input("Scientific Operation? ")
         if (mode != "radian" and mode != "degree" ):
             a = self.getOneNumbers()
-        while True:
-            if mode == 'q':
-                break
+        #while True:
+            #if mode == 'q':
+                #break
             if (mode== "sin"):
                # a = self.getOneNumbers()
-               print(self.sin(int(a)))
+                print(self.sin(int(a)))
             elif (mode== "cos"):
                 # a = self.getOneNumbers()
                 print(self.cos(int(a)))
@@ -65,9 +65,15 @@ class Scientfic_calculator:
                 print(self.inv_tan(int(a)))
             elif (mode == "radian" or mode == "degree"):
                 print(self.SwitchUnitsMode())
-            mode = input("Operation ?")
-            if (mode != "radian" and mode != "degree" and mode != "q"):
-                a = self.getOneNumbers()
+            else:
+                print("Not a valid input.")
+
+
+            #mode = input("Scientific Operation? ")
+            #if (mode != "radian" and mode != "degree" and mode != "q"):
+                #a = self.getOneNumbers()
+
+
 
 trig = Scientfic_calculator()
 
