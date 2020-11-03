@@ -13,37 +13,37 @@ class Calculator:
         return a
 
     def sin(self, val):
-        return math.sin(val)
+        return (round(math.sin(val),10))
 
     def cos(self, val):
-        return math.cos(val)
+        return (round(math.cos(val),11))
 
     def tan(self, val):
-        return math.tan(val)
+        return (round(math.tan(val),11))
 
     def inv_sin(self, val):
         if (val >= -1 and val <= 1):
-            return math.asin(val)
+            return (round(math.asin(val),11))
         else:
-            return 0
+            return "Error"
 
     def inv_cos(self, val):
         if (val >= -1 and val <= 1):
-            return math.acos(val)
+            return (round(math.acos(val),11))
         else:
-            return 0
+            return "Error"
 
     def inv_tan(self, val):
-        return math.atan(val)
+        return (round(math.atan(val),11))
 
     def SwitchUnitsMode(self,val,mode):
         #unit = input("radian or degree")
         if (mode == "radian"):
             #unit_value = input("Enter the Value :")
-            return math.radians(int(val))
+            return (round(math.radians(int(val)),7))
         elif mode == "degree":
             #unit_value = input("Enter the Value :")
-            return math.degrees(int(val))
+            return (round(math.degrees(int(val)),7))
 
     def getOneNumber(self):
         a = int(input("Your number? "))
@@ -93,31 +93,39 @@ class Calculator:
 
     def add(self, a, b):
         self.state = a + b
-
+        return self.state
     def sub(self, a, b):
         self.state = a - b
+        return self.state
 
 # add lots more methods to this calculator class.
     def multiply(self, a, b):
         self.state = a * b
+        return self.state
 
     def divide(self, a, b):
         self.state = a/b
+        return self.state
 
     def square(self, a):
         self.state = a ** 2
+        return self.state
 
     def square_root(self, a):
         self.state = math.sqrt(a)
+        return self.state
 
     def exponentiate(self, a, b):
         self.state = a ** b
+        return self.state
 
     def inverse(self, a):
         self.state = 1/a
+        return self.state
 
     def invert(self, a):
         self.state = -a
+        return self.state
 
     def add_to_memory(self):
         self.memory += self.state
